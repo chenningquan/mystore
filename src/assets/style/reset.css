@@ -14,8 +14,8 @@ time, mark, audio, video{
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100px;
-    font: inherit;
+    font-size: 62.5%;
+    /*font: inherit;*/
     font-weight: normal;
     vertical-align: baseline;
 }
@@ -63,6 +63,21 @@ a{
     width: 5px;
     background-color: rgba(125, 125, 125, 0.7);
     -webkit-border-radius: 6px;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #C5C9D5;
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color: #C5C9D5;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #C5C9D5;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #C5C9D5;
 }
 html, body{
     width: 100%;
