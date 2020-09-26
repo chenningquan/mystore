@@ -25,7 +25,16 @@ export default {
   },
   methods: {
     getVerify() {
-      console.log(this.phone);
+      this.$api.login
+        .getVerificationCode({
+          phone: this.phone
+        })
+        .then(res => {
+          if (res.data.code === 0) {
+            this.$store.commit("changePhone", this.phone);
+            this.$router.push("verification");
+          }
+        });
     }
   }
 };

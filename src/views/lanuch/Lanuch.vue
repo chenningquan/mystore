@@ -6,9 +6,12 @@
 export default {
   name: "Lanuch",
   mounted() {
-    setTimeout(() => {
-      this.$router.push("login");
-    }, 1000);
+    let phone = this.$store.state.phone;
+    if (phone === null) {
+      this.$router.replace("login");
+    } else {
+      this.$router.replace("home");
+    }
   },
   methods: {}
 };

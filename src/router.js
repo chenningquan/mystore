@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 import Login from "./views/login/Login";
 import Lanuch from "./views/lanuch/Lanuch";
+import Verificaton from "./views/login/Verificaton";
+import Home from "./views/home/Home";
 
 const routes = [
   {
@@ -12,6 +14,14 @@ const routes = [
   {
     path: "/login",
     component: Login
+  },
+  {
+    path: "/verification",
+    component: Verificaton
+  },
+  {
+    path: "/home",
+    component: Home
   }
 ];
 
