@@ -5,6 +5,7 @@ import Login from "./views/login/Login";
 import Lanuch from "./views/lanuch/Lanuch";
 import Verificaton from "./views/login/Verificaton";
 import Home from "./views/home/Home";
+import ChooseStore from "./views/store/ChooseStore";
 
 const routes = [
   {
@@ -22,6 +23,10 @@ const routes = [
   {
     path: "/home",
     component: Home
+  },
+  {
+    path: "/chooseStore",
+    component: ChooseStore
   }
 ];
 

@@ -7,6 +7,8 @@ const store = new Vuex.Store({
   state: {
     token: localStorage.getItem("token"),
     phone: localStorage.getItem("phone"),
+    storeCode: localStorage.getItem("storeCode"),
+    store: Object,
     hasNetwork: true,
     account: Object
   },
@@ -20,6 +22,11 @@ const store = new Vuex.Store({
     },
     changeAccountInfo(state, account) {
       state.account = account;
+    },
+    changeStore(state, store) {
+      state.store = store;
+      state.storeCode = store.storeCode;
+      localStorage.setItem("storeCode", store.storeCode);
     }
   }
 });
