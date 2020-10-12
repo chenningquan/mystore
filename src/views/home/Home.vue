@@ -24,7 +24,7 @@ export default {
     return {
       orderResp: Object,
       joinStoreItem: Object,
-      orderList: Array
+      orderList: []
     };
   },
   mounted() {

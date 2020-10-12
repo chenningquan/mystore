@@ -46,8 +46,8 @@ export default {
   background #58BA5D
   .left
     flex 0.8
-    padding-top 2rem
-    padding-left 2.2rem
+    margin-top 2rem
+    margin-left 2.2rem
     .store
       font-family PingFangSC-Semibold
       font-size 1.8rem
@@ -61,7 +61,7 @@ export default {
       line-height 1.4rem
   .center
     flex 0.5
-    padding-top 2.2rem
+    margin-top 2.5rem
     .title
       font-family PingFangSC-Regular
       font-size 1.0rem

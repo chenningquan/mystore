@@ -5,7 +5,7 @@ import router from "./router";
 import store from "./store";
 import api from "../src/request/api/index";
 
-import "swiper/swiper-bundle.css";
+import "swiper/dist/css/swiper.css";
 import VueAwesomeSwiper from "vue-awesome-swiper";
 Vue.use(VueAwesomeSwiper);
 

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <swiper :options="swiperOptions">
+    <swiper class="swiperContainer" :options="swiperOptions">
       <swiper-slide
         class="swiperSlide"
         v-for="item of orderList"
@@ -30,7 +30,10 @@ export default {
   data() {
     return {
       swiperOptions: {
-        direction: "vertical"
+        direction: "vertical",
+        loop: true,
+        autoplay: 5000,
+        autoplayDisableOnInteraction: false
       }
     };
   }
@@ -47,30 +50,36 @@ export default {
   box-shadow 0px 0px 13px 0px rgba(0, 0, 0, 0.06)
   border-radius 8px
   border 1px solid #E2E4EA
-  .swiperSlide
-    display flex
-    .orderIcon
-      margin-top 1.75rem
-      margin-left 1.47rem
-      width 1.28rem
-      height 1.5rem
-    .orderNo
-      margin-left .79rem
-      text-align center
-      line-height 5rem
-      font-family PingFangSC-Regular
-      font-size 1.5rem
-      color #41465D
-    .orderStatus
-      margin-left .79rem
-      text-align center
-      font-family PingFangSC-Regular
-      font-size 15px
-      color #58BA5D
-      line-height 5rem
-    .arrow
-      width 1.2rem
-      height 1.2rem
-      margin-top 1.9rem
-      margin-right 1.28rem
+  .swiperContainer
+    height 5rem
+    .swiperSlide
+      display flex
+      height 5rem
+      .orderIcon
+        margin-top 1.75rem
+        margin-left 1.47rem
+        width 1.28rem
+        height 1.5rem
+      .orderNo
+        margin-left .79rem
+        text-align center
+        height 5rem
+        line-height 5rem
+        font-family PingFangSC-Regular
+        font-size 1.5rem
+        color #41465D
+      .orderStatus
+        margin-left .79rem
+        text-align center
+        font-family PingFangSC-Regular
+        font-size 15px
+        color #58BA5D
+        height 5rem
+        line-height 5rem
+      .arrow
+        width 1.2rem
+        height 1.2rem
+        margin-top 1.9rem
+        margin-left auto
+        margin-right 1.28rem
 </style>
