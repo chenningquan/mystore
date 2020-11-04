@@ -7,6 +7,12 @@ const home = {
       baseUrl + "/purchase/store/listPurchaseOrderForAppHome",
       params
     );
+  },
+  getSwiperInfo(params) {
+    return axios.post(
+      baseUrl + "/stores/banner/open/listBannerByBannerType",
+      params
+    );
   }
 };
 

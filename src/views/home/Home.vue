@@ -12,19 +12,28 @@
       v-show="orderList.length > 0"
       v-bind:order-list="orderList"
     ></home-order-info>
+    <home-module-info></home-module-info>
+    <home-swiper v-bind:data-array="swiperList"></home-swiper>
+    <home-banner v-bind:banner-list="bannerList"></home-banner>
   </div>
 </template>
 
 <script>
 import HomeUserInfo from "./components/HomeUserInfo";
 import HomeOrderInfo from "./components/HomeOrderInfo";
+import HomeModuleInfo from "./components/HomeModuleInfo";
+import HomeSwiper from "./components/HomeSwiper";
+import HomeBanner from "./components/HomeBanner";
 export default {
   name: "Home",
   data() {
     return {
       orderResp: Object,
       joinStoreItem: Object,
-      orderList: []
+      orderList: [],
+      cityCode: "4201",
+      swiperList: [],
+      bannerList: []
     };
   },
   mounted() {
@@ -38,7 +47,6 @@ export default {
           phone: this.$store.state.phone
         })
         .then(res => {
-          console.log(res);
           let data = res.data.data;
           let storeCode = this.$store.state.storeCode;
           this.$store.commit("changeAccountInfo", data.miniAccount);
@@ -47,12 +55,14 @@ export default {
               this.$store.commit("changeStore", data.miniStores[index].store);
               this.orderResp = data.miniStores[index].orderResp;
               this.joinStoreItem = data.miniStores[index].joinStoreItem;
+              this.cityCode = data.miniStores[index].store.cityCode;
             }
           }
           if (this.$store.state.store === null) {
             this.$router.push("chooseStore");
           } else {
             this.getOrderInfo();
+            this.getSwiperInfo();
           }
         });
     },
@@ -63,16 +73,48 @@ export default {
           storeCode: this.$store.state.storeCode
         })
         .then(res => {
-          console.log(res);
           if (res.data.code === 0) {
             this.orderList = res.data.data;
+          }
+        });
+    },
+    /// 获取swiper数据
+    getSwiperInfo() {
+      this.$api.home
+        .getSwiperInfo({
+          bannerType: "APP",
+          cityCode: this.cityCode
+        })
+        .then(res => {
+          if (res.data.code === 0) {
+            const data = res.data.data;
+            this.swiperList = [];
+            this.bannerList = [];
+            for (let index in data) {
+              const model = data[index];
+              if (model.position.code === "A0101") {
+                for (let i in model.po.miniBannerPics) {
+                  this.swiperList.push(model.po.miniBannerPics[i]);
+                }
+              } else if (
+                model.position.code === "A0102" ||
+                model.position.code === "A0103"
+              ) {
+                for (let i in model.po.miniBannerPics) {
+                  this.bannerList.push(model.po.miniBannerPics[i]);
+                }
+              }
+            }
           }
         });
     }
   },
   components: {
     HomeUserInfo,
-    HomeOrderInfo
+    HomeOrderInfo,
+    HomeModuleInfo,
+    HomeSwiper,
+    HomeBanner
   }
 };
 </script>

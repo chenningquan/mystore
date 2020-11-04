@@ -12,7 +12,7 @@
       <p class="title">本月收入(元)</p>
       <p class="value">{{ monthIncome }}</p>
     </div>
-    <img src="../../../assets/images/ic_home_arrow_right.png" class="right" />
+    <img src="~images/ic_home_arrow_right.png" class="right" />
   </div>
 </template>
 

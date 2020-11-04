@@ -6,16 +6,10 @@
         v-for="item of orderList"
         :key="item.id"
       >
-        <img
-          class="orderIcon"
-          src="../../../assets/images/ic_home_order_icon.png"
-        />
+        <img class="orderIcon" src="~images/ic_home_order_icon.png" />
         <p class="orderNo">订单{{ item.code }}</p>
         <p class="orderStatus">{{ item.purchaseStatus }}</p>
-        <img
-          src="../../../assets/images/ic_home_arrow_right.png"
-          class="arrow"
-        />
+        <img src="~images/ic_home_arrow_right.png" class="arrow" />
       </swiper-slide>
     </swiper>
   </div>
